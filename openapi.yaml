@@ -1,0 +1,75 @@
+openapi: 3.0.4
+info:
+  title: Interest Rate
+  description: >-
+    Interest Rate is a tool for retrieving current central bank policy interest
+    rates for major economies worldwide. It returns the latest rate along with
+    the central bank name and effective date.
+  termsOfService: https://apiverve.com/terms/
+  contact:
+    name: APIVerve Support
+    email: hello@apiverve.com
+    url: https://apiverve.com/contact
+  version: 1.0.0
+externalDocs:
+  description: Learn more about APIVerve
+  url: https://docs.apiverve.com?utm_source=openapi
+servers:
+  - url: https://api.apiverve.com/
+paths:
+  /v1/interestrate:
+    get:
+      summary: Get Interest Rate
+      description: >-
+        Get the current central bank policy interest rate for a specific
+        country.
+      operationId: interestrate
+      parameters:
+        - name: country
+          in: query
+          schema:
+            type: string
+          required: true
+          description: 2-letter country code
+          example: US
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    description: status
+                  error:
+                    type: string
+                    description: error
+                  data:
+                    type: object
+                    description: data
+              example:
+                status: ok
+                error: null
+                data:
+                  country: US
+                  countryName: United States
+                  centralBank: Federal Reserve
+                  rate: 3.75
+                  date: '2026-02-05'
+                  lastUpdated: '2026-02-05T05:00:00.000Z'
+        '401':
+          description: Your request was not authorized, or your API Key was invalid
+        '404':
+          description: Requested resource was not found
+        '500':
+          description: A server error has occurred, try again later
+components:
+  securitySchemes:
+    api_key:
+      type: apiKey
+      name: x-api-key
+      in: header
+security:
+  - api_key: []
