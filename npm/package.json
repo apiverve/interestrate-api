@@ -1,6 +1,6 @@
 {
   "name": "@apiverve/interestrate",
-  "version": "1.1.13",
+  "version": "1.1.14",
   "description": "Interest Rate is a tool for retrieving current central bank policy interest rates for major economies worldwide. It returns the latest rate along with the central bank name and effective date.",
   "main": "index.js",
   "types": "index.d.ts",
