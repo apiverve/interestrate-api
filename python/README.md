@@ -221,8 +221,9 @@ from apiverve_interestrate.apiClient import InterestrateAPIClient
 
 api = InterestrateAPIClient("[YOUR_API_KEY]")
 
+query = { "country": "US" }
+
 try:
-    query = { "country": "US" }
     result = api.execute(query)
     print(result)
 finally:
