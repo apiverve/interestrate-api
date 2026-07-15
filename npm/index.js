@@ -30,7 +30,7 @@ class interestrateWrapper {
         this.baseURL = 'https://api.apiverve.com/v1/interestrate';
 
         // Validation rules for parameters (generated from schema)
-        this.validationRules = {"country":{"type":"string","required":true,"minLength":2,"maxLength":2}};
+        this.validationRules = {"country":{"type":"string","required":true,"minLength":2,"maxLength":2},"date":{"type":"string","required":false}};
     }
 
     /**
