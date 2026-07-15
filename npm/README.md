@@ -1,6 +1,6 @@
 # Interest Rate API
 
-Interest Rate is a tool for retrieving current central bank policy interest rates for major economies worldwide. It returns the latest rate along with the central bank name and effective date.
+Interest Rate is a tool for retrieving current and historical central bank policy interest rates for major economies worldwide. It returns the latest rate along with the central bank name and effective date.
 
 ![Build Status](https://img.shields.io/badge/build-passing-green)
 ![Code Climate](https://img.shields.io/badge/maintainability-B-purple)
@@ -60,7 +60,8 @@ Using the API is simple. All you have to do is make a request. The API will retu
 
 ```javascript
 var query = {
-  country: "US"
+  country: "US",
+  date: "2024-06"
 };
 
 api.execute(query, function (error, data) {
@@ -80,7 +81,8 @@ You can also use promises to make requests. The API returns a promise that you c
 
 ```javascript
 var query = {
-  country: "US"
+  country: "US",
+  date: "2024-06"
 };
 
 api.execute(query)
@@ -101,7 +103,8 @@ You can also use async/await to make requests. The API returns a promise that yo
 ```javascript
 async function makeRequest() {
     var query = {
-  country: "US"
+  country: "US",
+  date: "2024-06"
 };
 
     try {
@@ -125,9 +128,13 @@ async function makeRequest() {
     "country": "US",
     "countryName": "United States",
     "centralBank": "Federal Reserve",
-    "rate": 3.75,
+    "rate": 4.5,
     "date": "2026-02-05",
-    "lastUpdated": "2026-02-05T05:00:00.000Z"
+    "lastUpdated": "2026-02-05T05:00:00.000Z",
+    "lastChanged": "2026-01-29",
+    "change": -0.25,
+    "changeDirection": "down",
+    "previousRate": 4.75
   }
 }
 ```
