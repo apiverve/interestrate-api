@@ -2,9 +2,9 @@ openapi: 3.0.4
 info:
   title: Interest Rate
   description: >-
-    Interest Rate is a tool for retrieving current central bank policy interest
-    rates for major economies worldwide. It returns the latest rate along with
-    the central bank name and effective date.
+    Interest Rate is a tool for retrieving current and historical central bank
+    policy interest rates for major economies worldwide. It returns the latest
+    rate along with the central bank name and effective date.
   termsOfService: https://apiverve.com/terms/
   contact:
     name: APIVerve Support
@@ -21,8 +21,9 @@ paths:
     get:
       summary: Get Interest Rate
       description: >-
-        Get the current central bank policy interest rate for a specific
-        country.
+        Get the central bank policy interest rate for a specific country. Omit
+        `date` for the current rate, or pass a YYYY-MM month for a historical
+        rate (available from 2000 onwards).
       operationId: interestrate
       parameters:
         - name: country
@@ -32,6 +33,15 @@ paths:
           required: true
           description: 2-letter country code
           example: US
+        - name: date
+          in: query
+          schema:
+            type: string
+          required: false
+          description: >-
+            Optional month in YYYY-MM format for a historical lookup. Omit for
+            the current rate.
+          example: 2024-06
       responses:
         '200':
           description: Successful Response
@@ -56,9 +66,13 @@ paths:
                   country: US
                   countryName: United States
                   centralBank: Federal Reserve
-                  rate: 3.75
+                  rate: 4.5
                   date: '2026-02-05'
                   lastUpdated: '2026-02-05T05:00:00.000Z'
+                  lastChanged: '2026-01-29'
+                  change: -0.25
+                  changeDirection: down
+                  previousRate: 4.75
         '401':
           description: Your request was not authorized, or your API Key was invalid
         '404':
