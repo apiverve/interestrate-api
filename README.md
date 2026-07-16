@@ -191,11 +191,37 @@ x-api-key: YOUR_API_KEY_HERE
 Get your API key: [https://apiverve.com](https://apiverve.com)
 
 ### Response Format
-All responses are JSON with this structure:
+
+Every APIVerve endpoint returns the same envelope — check `status`, then read `data`:
+
 ```json
 {
   "status": "ok",
+  "error": null,
   "data": { ... }
+}
+```
+
+### Example Response
+
+A real response from the Interest Rate API:
+
+```json
+{
+  "status": "ok",
+  "error": null,
+  "data": {
+    "country": "US",
+    "countryName": "United States",
+    "centralBank": "Federal Reserve",
+    "rate": 4.5,
+    "date": "2026-02-05",
+    "lastUpdated": "2026-02-05T05:00:00.000Z",
+    "lastChanged": "2026-01-29",
+    "change": -0.25,
+    "changeDirection": "down",
+    "previousRate": 4.75
+  }
 }
 ```
 
