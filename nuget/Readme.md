@@ -1,7 +1,7 @@
 InterestRate API
 ============
 
-Interest Rate is a tool for retrieving current central bank policy interest rates for major economies worldwide. It returns the latest rate along with the central bank name and effective date.
+Interest Rate is a tool for retrieving current and historical central bank policy interest rates for major economies worldwide. It returns the latest rate along with the central bank name and effective date.
 
 ![Build Status](https://img.shields.io/badge/build-passing-green)
 ![Code Climate](https://img.shields.io/badge/maintainability-B-purple)
@@ -51,7 +51,7 @@ Here's a simple example to get you started quickly:
 
 ```csharp
 using System;
-using APIVerve;
+using APIVerve.API.InterestRate;
 
 class Program
 {
@@ -60,8 +60,9 @@ class Program
         // Initialize the API client
         var apiClient = new InterestRateAPIClient("[YOUR_API_KEY]");
 
-        var queryOptions = new QueryOptions {
-    country = "US"
+        var queryOptions = new InterestRateQueryOptions {
+    Country = "US",
+    Date = "2024-06"
 };
 
         // Make the API call
@@ -116,7 +117,7 @@ The modern async/await pattern provides the best performance and code readabilit
 ```csharp
 using System;
 using System.Threading.Tasks;
-using APIVerve;
+using APIVerve.API.InterestRate;
 
 public class Example
 {
@@ -124,8 +125,9 @@ public class Example
     {
         var apiClient = new InterestRateAPIClient("[YOUR_API_KEY]");
 
-        var queryOptions = new QueryOptions {
-    country = "US"
+        var queryOptions = new InterestRateQueryOptions {
+    Country = "US",
+    Date = "2024-06"
 };
 
         var response = await apiClient.ExecuteAsync(queryOptions);
@@ -148,7 +150,7 @@ If you need to use synchronous code, you can use the `Execute` method:
 
 ```csharp
 using System;
-using APIVerve;
+using APIVerve.API.InterestRate;
 
 public class Example
 {
@@ -156,8 +158,9 @@ public class Example
     {
         var apiClient = new InterestRateAPIClient("[YOUR_API_KEY]");
 
-        var queryOptions = new QueryOptions {
-    country = "US"
+        var queryOptions = new InterestRateQueryOptions {
+    Country = "US",
+    Date = "2024-06"
 };
 
         var response = apiClient.Execute(queryOptions);
@@ -185,7 +188,7 @@ The API client provides comprehensive error handling. Here are some examples:
 ```csharp
 using System;
 using System.Threading.Tasks;
-using APIVerve;
+using APIVerve.API.InterestRate;
 
 public class Example
 {
@@ -193,8 +196,9 @@ public class Example
     {
         var apiClient = new InterestRateAPIClient("[YOUR_API_KEY]");
 
-        var queryOptions = new QueryOptions {
-    country = "US"
+        var queryOptions = new InterestRateQueryOptions {
+    Country = "US",
+    Date = "2024-06"
 };
 
         try
@@ -237,7 +241,7 @@ public class Example
 ```csharp
 using System;
 using System.Threading.Tasks;
-using APIVerve;
+using APIVerve.API.InterestRate;
 
 public class Example
 {
@@ -249,8 +253,9 @@ public class Example
         apiClient.SetMaxRetries(3);        // Retry up to 3 times (default: 0, max: 3)
         apiClient.SetRetryDelay(2000);     // Wait 2 seconds between retries
 
-        var queryOptions = new QueryOptions {
-    country = "US"
+        var queryOptions = new InterestRateQueryOptions {
+    Country = "US",
+    Date = "2024-06"
 };
 
         try
@@ -290,8 +295,9 @@ var apiClient = new InterestRateAPIClient("[YOUR_API_KEY]");
 apiClient.AddCustomHeader("X-Custom-Header", "custom-value");
 apiClient.AddCustomHeader("X-Request-ID", Guid.NewGuid().ToString());
 
-var queryOptions = new QueryOptions {
-    country = "US"
+var queryOptions = new InterestRateQueryOptions {
+    Country = "US",
+    Date = "2024-06"
 };
 
 var response = await apiClient.ExecuteAsync(queryOptions);
@@ -316,8 +322,9 @@ apiClient.SetLogger(message =>
     Console.WriteLine($"[LOG] {DateTime.Now:yyyy-MM-dd HH:mm:ss} - {message}");
 });
 
-var queryOptions = new QueryOptions {
-    country = "US"
+var queryOptions = new InterestRateQueryOptions {
+    Country = "US",
+    Date = "2024-06"
 };
 
 var response = await apiClient.ExecuteAsync(queryOptions);
@@ -334,8 +341,9 @@ var apiClient = new InterestRateAPIClient("[YOUR_API_KEY]");
 apiClient.SetMaxRetries(3);           // Retry up to 3 times (default: 0, max: 3)
 apiClient.SetRetryDelay(1500);        // Wait 1.5 seconds between retries (default: 1000ms)
 
-var queryOptions = new QueryOptions {
-    country = "US"
+var queryOptions = new InterestRateQueryOptions {
+    Country = "US",
+    Date = "2024-06"
 };
 
 var response = await apiClient.ExecuteAsync(queryOptions);
@@ -346,8 +354,9 @@ var response = await apiClient.ExecuteAsync(queryOptions);
 The API client implements `IDisposable` for proper resource cleanup:
 
 ```csharp
-var queryOptions = new QueryOptions {
-    country = "US"
+var queryOptions = new InterestRateQueryOptions {
+    Country = "US",
+    Date = "2024-06"
 };
 
 using (var apiClient = new InterestRateAPIClient("[YOUR_API_KEY]"))
@@ -370,9 +379,13 @@ using (var apiClient = new InterestRateAPIClient("[YOUR_API_KEY]"))
     "country": "US",
     "countryName": "United States",
     "centralBank": "Federal Reserve",
-    "rate": 3.75,
+    "rate": 4.5,
     "date": "2026-02-05",
-    "lastUpdated": "2026-02-05T05:00:00.000Z"
+    "lastUpdated": "2026-02-05T05:00:00.000Z",
+    "lastChanged": "2026-01-29",
+    "change": -0.25,
+    "changeDirection": "down",
+    "previousRate": 4.75
   }
 }
 ```
