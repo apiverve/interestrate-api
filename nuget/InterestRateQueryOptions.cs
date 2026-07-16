@@ -15,5 +15,11 @@ namespace APIVerve.API.InterestRate
         /// </summary>
         [JsonProperty("country")]
         public string Country { get; set; }
+
+        /// <summary>
+        /// Optional month in YYYY-MM format for a historical lookup. Omit for the current rate.
+        /// </summary>
+        [JsonProperty("date")]
+        public string Date { get; set; }
     }
 }
