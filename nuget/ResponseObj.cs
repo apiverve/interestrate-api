@@ -25,6 +25,9 @@ namespace APIVerve.API.InterestRate
 
         [JsonProperty("data")]
         public Data Data { get; set; }
+
+        [JsonProperty("premium")]
+        public Premium Premium { get; set; }
     }
 
     public partial class Data
@@ -39,12 +42,36 @@ namespace APIVerve.API.InterestRate
         public string CentralBank { get; set; }
 
         [JsonProperty("rate")]
-        public double Rate { get; set; }
+        public double? Rate { get; set; }
 
         [JsonProperty("date")]
-        public DateTimeOffset Date { get; set; }
+        public DateTimeOffset? Date { get; set; }
 
         [JsonProperty("lastUpdated")]
-        public DateTimeOffset LastUpdated { get; set; }
+        public DateTimeOffset? LastUpdated { get; set; }
+
+        [JsonProperty("lastChanged")]
+        public DateTimeOffset? LastChanged { get; set; }
+
+        [JsonProperty("change")]
+        public double? Change { get; set; }
+
+        [JsonProperty("changeDirection")]
+        public string ChangeDirection { get; set; }
+
+        [JsonProperty("previousRate")]
+        public double? PreviousRate { get; set; }
+    }
+
+    public partial class Premium
+    {
+        [JsonProperty("message")]
+        public string Message { get; set; }
+
+        [JsonProperty("upgrade_url")]
+        public Uri UpgradeUrl { get; set; }
+
+        [JsonProperty("locked_fields")]
+        public string[] LockedFields { get; set; }
     }
 }
