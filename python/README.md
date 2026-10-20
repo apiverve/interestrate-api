@@ -1,13 +1,12 @@
 Interest Rate API
 ============
 
-Interest Rate is a tool for retrieving current central bank policy interest rates for major economies worldwide. It returns the latest rate along with the central bank name and effective date.
+Interest Rate retrieves central bank policy rates for 22 major economies by country code. It delivers the latest interest rate percentage, central bank name, recorded date, and whether the rate moved up, down, or remained unchanged.
 
-![Build Status](https://img.shields.io/badge/build-passing-green)
-![Code Climate](https://img.shields.io/badge/maintainability-B-purple)
-![Prod Ready](https://img.shields.io/badge/production-ready-blue)
 
-This is a Python API Wrapper for the [Interest Rate API](https://apiverve.com/marketplace/interestrate?utm_source=pypi&utm_medium=readme)
+[![PyPI version](https://img.shields.io/pypi/v/apiverve-interestrate.svg)](https://pypi.org/project/apiverve-interestrate/)
+
+This is a Python wrapper for the [Interest Rate API](https://apiverve.com/marketplace/interestrate?utm_source=pypi&utm_medium=referral&utm_content=readme)
 
 ---
 
@@ -29,8 +28,8 @@ pip3 install apiverve-interestrate
 
 ## Configuration
 
-Before using the interestrate API client, you have to setup your account and obtain your API Key.
-You can get it by signing up at [https://apiverve.com](https://apiverve.com?utm_source=pypi&utm_medium=readme)
+Before using the Interest Rate API client, you have to setup your account and obtain your API Key.
+You can get it by signing up at [https://apiverve.com](https://apiverve.com?utm_source=pypi&utm_medium=referral&utm_content=readme)
 
 ---
 
@@ -44,7 +43,10 @@ from apiverve_interestrate.apiClient import InterestrateAPIClient
 # Initialize the client with your APIVerve API key
 api = InterestrateAPIClient("[YOUR_API_KEY]")
 
-query = { "country": "US" }
+query = {
+    "country": "US",
+    "date": "2024-06"
+}
 
 try:
     # Make the API call
@@ -60,7 +62,7 @@ except Exception as e:
 
 ## Usage
 
-The Interest Rate API documentation is found here: [https://docs.apiverve.com/ref/interestrate](https://docs.apiverve.com/ref/interestrate?utm_source=pypi&utm_medium=readme).
+The Interest Rate API documentation is found here: [https://docs.apiverve.com/ref/interestrate](https://docs.apiverve.com/ref/interestrate?utm_source=pypi&utm_medium=referral&utm_content=readme).
 You can find parameters, example responses, and status codes documented here.
 
 ### Setup
@@ -82,7 +84,10 @@ Using the API client, you can perform requests to the API.
 ###### Define Query
 
 ```python
-query = { "country": "US" }
+query = {
+    "country": "US",
+    "date": "2024-06"
+}
 ```
 
 ###### Simple Request
@@ -105,9 +110,13 @@ print(result)
     "country": "US",
     "countryName": "United States",
     "centralBank": "Federal Reserve",
-    "rate": 3.75,
+    "rate": 4.5,
     "date": "2026-02-05",
-    "lastUpdated": "2026-02-05T05:00:00.000Z"
+    "lastUpdated": "2026-02-05T05:00:00.000Z",
+    "lastChanged": "2026-01-29",
+    "change": -0.25,
+    "changeDirection": "down",
+    "previousRate": 4.75
   }
 }
 ```
@@ -125,7 +134,10 @@ from apiverve_interestrate.apiClient import InterestrateAPIClient, InterestrateA
 
 api = InterestrateAPIClient("[YOUR_API_KEY]")
 
-query = { "country": "US" }
+query = {
+    "country": "US",
+    "date": "2024-06"
+}
 
 try:
     result = api.execute(query)
@@ -146,7 +158,10 @@ from apiverve_interestrate.apiClient import InterestrateAPIClient, InterestrateA
 
 api = InterestrateAPIClient("[YOUR_API_KEY]")
 
-query = { "country": "US" }
+query = {
+    "country": "US",
+    "date": "2024-06"
+}
 
 try:
     result = api.execute(query)
@@ -180,7 +195,10 @@ The client supports the context manager protocol for automatic resource cleanup:
 ```python
 from apiverve_interestrate.apiClient import InterestrateAPIClient, InterestrateAPIClientError
 
-query = { "country": "US" }
+query = {
+    "country": "US",
+    "date": "2024-06"
+}
 
 # Using context manager ensures proper cleanup
 with InterestrateAPIClient("[YOUR_API_KEY]") as api:
@@ -206,7 +224,10 @@ from apiverve_interestrate.apiClient import InterestrateAPIClient
 # Enable debug mode
 api = InterestrateAPIClient("[YOUR_API_KEY]", debug=True)
 
-query = { "country": "US" }
+query = {
+    "country": "US",
+    "date": "2024-06"
+}
 
 # Debug information will be printed to console
 result = api.execute(query)
@@ -221,7 +242,10 @@ from apiverve_interestrate.apiClient import InterestrateAPIClient
 
 api = InterestrateAPIClient("[YOUR_API_KEY]")
 
-query = { "country": "US" }
+query = {
+    "country": "US",
+    "date": "2024-06"
+}
 
 try:
     result = api.execute(query)
@@ -235,7 +259,7 @@ finally:
 
 ## Customer Support
 
-Need any assistance? [Get in touch with Customer Support](https://apiverve.com/contact?utm_source=pypi&utm_medium=readme).
+Need any assistance? [Get in touch with Customer Support](https://apiverve.com/contact?utm_source=pypi&utm_medium=referral&utm_content=readme).
 
 ---
 
@@ -246,12 +270,12 @@ Stay up to date by following [@apiverveHQ](https://twitter.com/apiverveHQ) on Tw
 
 ## Legal
 
-All usage of the APIVerve website, API, and services is subject to the [APIVerve Terms of Service](https://apiverve.com/terms?utm_source=pypi&utm_medium=readme) and all legal documents and agreements.
+All usage of the APIVerve website, API, and services is subject to the [APIVerve Terms of Service](https://apiverve.com/terms?utm_source=pypi&utm_medium=referral&utm_content=readme) and all legal documents and agreements.
 
 ---
 
 ## License
-Licensed under the The MIT License (MIT)
+Licensed under the MIT License (MIT)
 
 Copyright (&copy;) 2026 APIVerve, and EvlarSoft LLC
 
