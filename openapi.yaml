@@ -2,9 +2,10 @@ openapi: 3.0.4
 info:
   title: Interest Rate
   description: >-
-    Interest Rate is a tool for retrieving current and historical central bank
-    policy interest rates for major economies worldwide. It returns the latest
-    rate along with the central bank name and effective date.
+    Interest Rate retrieves central bank policy rates for 22 major economies by
+    country code. It delivers the latest interest rate percentage, central bank
+    name, recorded date, and whether the rate moved up, down, or remained
+    unchanged.
   termsOfService: https://apiverve.com/terms/
   contact:
     name: APIVerve Support
@@ -19,7 +20,7 @@ servers:
 paths:
   /v1/interestrate:
     get:
-      summary: Get Interest Rate
+      summary: Interest Rate
       description: >-
         Get the central bank policy interest rate for a specific country. Omit
         `date` for the current rate, or pass a YYYY-MM month for a historical
