@@ -1,7 +1,7 @@
 {
   "name": "@apiverve/interestrate",
-  "version": "1.2.0",
-  "description": "Interest Rate is a tool for retrieving current and historical central bank policy interest rates for major economies worldwide. It returns the latest rate along with the central bank name and effective date.",
+  "version": "1.2.2",
+  "description": "Interest Rate retrieves central bank policy rates for 22 major economies by country code. It delivers the latest interest rate percentage, central bank name, recorded date, and whether the rate moved up, down, or remained unchanged.",
   "main": "index.js",
   "types": "index.d.ts",
   "sideEffects": false,
@@ -34,7 +34,7 @@
   "bugs": {
     "url": "https://github.com/apiverve/interestrate-api/issues"
   },
-  "homepage": "https://apiverve.com/marketplace/interestrate?utm_source=npm&utm_medium=homepage",
+  "homepage": "https://apiverve.com/marketplace/interestrate?utm_source=npm&utm_medium=referral&utm_content=homepage",
   "devDependencies": {
     "mocha": "^11.0.1",
     "chai": "^5.1.2",
