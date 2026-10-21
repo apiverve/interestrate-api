@@ -1,6 +1,6 @@
 # Interest Rate API - PHP Package
 
-Interest Rate is a tool for retrieving current and historical central bank policy interest rates for major economies worldwide. It returns the latest rate along with the central bank name and effective date.
+Interest Rate retrieves central bank policy rates for 22 major economies by country code. It delivers the latest interest rate percentage, central bank name, recorded date, and whether the rate moved up, down, or remained unchanged.
 
 ## Installation
 
@@ -93,11 +93,11 @@ $client = new Client(
 
 ## Documentation
 
-For more information, visit the [API Documentation](https://docs.apiverve.com/ref/interestrate?utm_source=packagist&utm_medium=readme).
+For more information, visit the [API Documentation](https://docs.apiverve.com/ref/interestrate?utm_source=packagist&utm_medium=referral&utm_content=readme).
 
 ## Support
 
-- Website: [https://apiverve.com/marketplace/interestrate?utm_source=php&utm_medium=readme](https://apiverve.com/marketplace/interestrate?utm_source=php&utm_medium=readme)
+- Website: [https://apiverve.com/marketplace/interestrate?utm_source=php&utm_medium=referral&utm_content=readme](https://apiverve.com/marketplace/interestrate?utm_source=php&utm_medium=referral&utm_content=readme)
 - Email: hello@apiverve.com
 
 ## License
