@@ -1,7 +1,7 @@
 {
     "name": "apiverve/interestrate",
-    "description": "Interest Rate is a tool for retrieving current and historical central bank policy interest rates for major economies worldwide. It returns the latest rate along with the central bank name and effective date.",
-    "version": "1.2.0",
+    "description": "Interest Rate retrieves central bank policy rates for 22 major economies by country code. It delivers the latest interest rate percentage, central bank name, recorded date, and whether the rate moved up, down, or remained unchanged.",
+    "version": "1.2.2",
     "type": "library",
     "license": "MIT",
     "authors": [
@@ -21,7 +21,7 @@
         "federal funds rate",
         "ecb rate"
     ],
-    "homepage": "https://apiverve.com/marketplace/interestrate?utm_source=php&utm_medium=homepage",
+    "homepage": "https://apiverve.com/marketplace/interestrate?utm_source=php&utm_medium=referral&utm_content=homepage",
     "support": {
         "email": "hello@apiverve.com",
         "docs": "https://docs.apiverve.com/ref/interestrate",
