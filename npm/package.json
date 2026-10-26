@@ -1,6 +1,6 @@
 {
   "name": "@apiverve/interestrate",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "Interest Rate retrieves central bank policy rates for 22 major economies by country code. It delivers the latest interest rate percentage, central bank name, recorded date, and whether the rate moved up, down, or remained unchanged.",
   "main": "index.js",
   "types": "index.d.ts",
