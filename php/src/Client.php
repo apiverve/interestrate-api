@@ -15,7 +15,7 @@ use APIVerve\Interestrate\Exceptions\ValidationException;
  * @example Basic usage
  * ```php
  * $client = new Client('your_api_key');
- * $response = $client->execute(['country' => 'US', 'date' => '2024-06']);
+ * $response = $client->execute(['country' => 'US', 'date' => '2024-06', 'history' => true, 'changes' => true]);
  * print_r($response);
  * ```
  *
@@ -35,7 +35,9 @@ class Client
      */
     private const VALIDATION_RULES = [
         'country' => ['type' => 'string', 'required' => true, 'minLength' => 2, 'maxLength' => 2],
-        'date' => ['type' => 'string', 'required' => false]
+        'date' => ['type' => 'string', 'required' => false],
+        'history' => ['type' => 'boolean', 'required' => false],
+        'changes' => ['type' => 'boolean', 'required' => false]
     ];
 
     /**
