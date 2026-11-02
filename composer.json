@@ -1,7 +1,7 @@
 {
     "name": "apiverve/interestrate",
-    "description": "Interest Rate retrieves central bank policy rates for 22 major economies by country code. It delivers the latest interest rate percentage, central bank name, recorded date, and whether the rate moved up, down, or remained unchanged.",
-    "version": "1.2.3",
+    "description": "Interest Rate retrieves central bank policy rates for 22 major economies by country code. It delivers the latest interest rate percentage, central bank name, recorded date, and whether the rate moved up, down, or remained unchanged, while paid plans add the 12-month change, the 12-month high, low and average, and the last 12 monthly rates.",
+    "version": "1.2.4",
     "type": "library",
     "license": "MIT",
     "authors": [
