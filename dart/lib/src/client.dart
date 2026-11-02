@@ -46,10 +46,13 @@ final _formatPatterns = {
 
 /// Interest Rate API client.
 ///
-/// For more information, visit: https://apiverve.com/marketplace/interestrate?utm_source=dart&utm_medium=readme
+/// For more information, visit: https://apiverve.com/marketplace/interestrate?utm_source=dart&utm_medium=referral&utm_content=readme
 ///
 /// Parameters:
 /// * [country] (required) - 2-letter country code [minLength: 2, maxLength: 2]
+/// * [date] - Optional month in YYYY-MM format for a historical lookup. Omit for the current rate.
+/// * [history] - Include the 12 monthly rates ending at the returned month
+/// * [changes] - Include the 12-month change and the 12-month high, low and average
 class InterestrateClient {
   final String apiKey;
   final String baseUrl;
@@ -58,6 +61,9 @@ class InterestrateClient {
   /// Validation rules for parameters.
   static final Map<String, ValidationRule> _validationRules = <String, ValidationRule>{
     'country': ValidationRule(type: 'string', required: true, minLength: 2, maxLength: 2),
+    'date': ValidationRule(type: 'string', required: false),
+    'history': ValidationRule(type: 'boolean', required: false),
+    'changes': ValidationRule(type: 'boolean', required: false),
   };
 
   InterestrateClient(this.apiKey, {
