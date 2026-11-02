@@ -16,7 +16,9 @@ const api = new interestrateAPI({
 // Example query
 var query = {
   country: "US",
-  date: "2024-06"
+  date: "2024-06",
+  history: false,
+  changes: false
 };
 
 // Make the API request using callback

@@ -35,6 +35,16 @@ declare module '@apiverve/interestrate' {
       change:          number | null;
       changeDirection: null | string;
       previousRate:    number | null;
+      change12M:       number | null;
+      high12M:         number | null;
+      low12M:          number | null;
+      average12M:      number | null;
+      history:         History[];
+  }
+  
+  interface History {
+      period: null | string;
+      rate:   number | null;
   }
 
   export default class interestrateWrapper {

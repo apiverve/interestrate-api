@@ -1,6 +1,6 @@
 # Interest Rate API
 
-Interest Rate retrieves central bank policy rates for 22 major economies by country code. It delivers the latest interest rate percentage, central bank name, recorded date, and whether the rate moved up, down, or remained unchanged.
+Interest Rate retrieves central bank policy rates for 22 major economies by country code. It delivers the latest interest rate percentage, central bank name, recorded date, and whether the rate moved up, down, or remained unchanged, while paid plans add the 12-month change, the 12-month high, low and average, and the last 12 monthly rates.
 
 [![npm version](https://img.shields.io/npm/v/@apiverve/interestrate.svg)](https://www.npmjs.com/package/@apiverve/interestrate)
 
@@ -58,7 +58,9 @@ Using the API is simple. All you have to do is make a request. The API will retu
 ```javascript
 var query = {
   country: "US",
-  date: "2024-06"
+  date: "2024-06",
+  history: false,
+  changes: false
 };
 
 api.execute(query, function (error, data) {
@@ -79,7 +81,9 @@ You can also use promises to make requests. The API returns a promise that you c
 ```javascript
 var query = {
   country: "US",
-  date: "2024-06"
+  date: "2024-06",
+  history: false,
+  changes: false
 };
 
 api.execute(query)
@@ -101,7 +105,9 @@ You can also use async/await to make requests. The API returns a promise that yo
 async function makeRequest() {
     var query = {
   country: "US",
-  date: "2024-06"
+  date: "2024-06",
+  history: false,
+  changes: false
 };
 
     try {
@@ -125,13 +131,67 @@ async function makeRequest() {
     "country": "US",
     "countryName": "United States",
     "centralBank": "Federal Reserve",
-    "rate": 4.5,
-    "date": "2026-02-05",
-    "lastUpdated": "2026-02-05T05:00:00.000Z",
-    "lastChanged": "2026-01-29",
-    "change": -0.25,
-    "changeDirection": "down",
-    "previousRate": 4.75
+    "rate": 4,
+    "date": "2026-10-27",
+    "lastUpdated": "2026-10-27T10:00:00.000Z",
+    "lastChanged": "2026-09-17",
+    "change": 0.25,
+    "changeDirection": "up",
+    "previousRate": 3.75,
+    "change12m": 0,
+    "high12m": 4,
+    "low12m": 3.75,
+    "average12m": 3.8125,
+    "history": [
+      {
+        "period": "2025-11",
+        "rate": 4
+      },
+      {
+        "period": "2025-12",
+        "rate": 3.75
+      },
+      {
+        "period": "2026-01",
+        "rate": 3.75
+      },
+      {
+        "period": "2026-02",
+        "rate": 3.75
+      },
+      {
+        "period": "2026-03",
+        "rate": 3.75
+      },
+      {
+        "period": "2026-04",
+        "rate": 3.75
+      },
+      {
+        "period": "2026-05",
+        "rate": 3.75
+      },
+      {
+        "period": "2026-06",
+        "rate": 3.75
+      },
+      {
+        "period": "2026-07",
+        "rate": 3.75
+      },
+      {
+        "period": "2026-08",
+        "rate": 3.75
+      },
+      {
+        "period": "2026-09",
+        "rate": 4
+      },
+      {
+        "period": "2026-10",
+        "rate": 4
+      }
+    ]
   }
 }
 ```
