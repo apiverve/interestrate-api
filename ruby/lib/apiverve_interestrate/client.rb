@@ -10,7 +10,7 @@ module APIVerve
     #
     # @example Basic usage
     #   client = APIVerve::Interestrate::Client.new(api_key: "your_api_key")
-    #   response = client.execute({ country: "US", date: "2024-06" })
+    #   response = client.execute({ country: "US", date: "2024-06", history: true, changes: true })
     #   puts response
     #
     # @see https://apiverve.com/marketplace/interestrate?utm_source=ruby&utm_medium=referral&utm_content=readme
@@ -19,7 +19,7 @@ module APIVerve
       DEFAULT_TIMEOUT = 30
 
       # Validation rules for parameters
-      VALIDATION_RULES = { 'country' => { type: 'string', required: true, min_length: 2, max_length: 2 }, 'date' => { type: 'string', required: false } }
+      VALIDATION_RULES = { 'country' => { type: 'string', required: true, min_length: 2, max_length: 2 }, 'date' => { type: 'string', required: false }, 'history' => { type: 'boolean', required: false }, 'changes' => { type: 'boolean', required: false } }
 
       # Format validation patterns
       FORMAT_PATTERNS = {
