@@ -25,7 +25,9 @@ class InterestrateAPIClient:
     # Validation rules for parameters (generated from schema)
     VALIDATION_RULES = {
         "country": {"type": "string", "required": True, "minLength": 2, "maxLength": 2},
-        "date": {"type": "string", "required": False}
+        "date": {"type": "string", "required": False},
+        "history": {"type": "boolean", "required": False, "default": False},
+        "changes": {"type": "boolean", "required": False, "default": False}
     }
 
     # Format validation patterns
