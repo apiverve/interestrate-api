@@ -21,5 +21,17 @@ namespace APIVerve.API.InterestRate
         /// </summary>
         [JsonProperty("date")]
         public string Date { get; set; }
+
+        /// <summary>
+        /// Include the 12 monthly rates ending at the returned month
+        /// </summary>
+        [JsonProperty("history")]
+        public bool? History { get; set; }
+
+        /// <summary>
+        /// Include the 12-month change and the 12-month high, low and average
+        /// </summary>
+        [JsonProperty("changes")]
+        public bool? Changes { get; set; }
     }
 }
